@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robin Cantauw Martínez | Informatik-Student & Entwickler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --primary: #58a6ff;
+      --primary-hover: #79c0ff;
+      --accent: #238636;
+      --tag-bg: #21262d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+    header {
+      margin-bottom: 3.5rem;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(35, 134, 54, 0.15);
+      border: 1px solid rgba(35, 134, 54, 0.4);
+      color: #3fb950;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #3fb950;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #3fb950;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .bio {
+      font-size: 1.05rem;
+      color: #c9d1d9;
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .btn-primary {
+      background-color: #1f6feb;
+      border-color: #1f6feb;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background-color: #388bfd;
+      border-color: #388bfd;
+      color: #fff;
+    }
+    section {
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      border-color: #58a6ff66;
+      transform: translateY(-2px);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.8rem;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .card-body {
+      color: #c9d1d9;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+    .tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background-color: var(--tag-bg);
+      border: 1px solid var(--card-border);
+      color: #8b949e;
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-category {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.2rem;
+    }
+    .skill-category h3 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="status-badge">
+        <span class="status-dot"></span> Offen für Werkstudentenstellen (12–18h/Woche in Berlin / Remote)
+      </div>
+      <h1>Robin Cantauw Martínez</h1>
+      <p class="subtitle">B.Sc. Informatik-Student @ Technische Universität Berlin</p>
+      <p class="bio">
+        Leidenschaftlicher Informatikstudent mit Fokus auf <strong>Datensysteme, Systemprogrammierung & Backend-Entwicklung</strong>. 
+        Erfahrung mit Machine-Learning-Pipelines, relationalen Datenstrukturen und low-level Systementwicklung. Mehrsprachig aufgewachsen (Deutsch & Spanisch bilingual, Englisch verhandlungssicher).
+      </p>
+      <div class="social-links">
+        <a href="mailto:robincantauw@gmail.com" class="btn btn-primary">✉️ E-Mail schreiben</a>
+        <a href="https://github.com/cantauwmar" target="_blank" rel="noopener noreferrer" class="btn">🐙 GitHub</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">ML Fairness Auditing Framework</h3>
+            <span class="card-subtitle">TU Berlin (2026)</span>
+          </div>
+          <p class="card-body">
+            Ein modulares Framework zur Messung und Auditierung algorithmischer Fairness in ML-Pipelines (ACS Income Datensatz). 
+            Zentrale Group-Fairness-Metriken (Disparate Impact, Equalized Odds, Demographic Parity) wurden eigenhändig <strong>from scratch</strong> ohne externe Bibliotheken implementiert. Inklusive Pipeline-Runner, Daten-Matcher und robuster Testabdeckung mit Pytest.
+          </p>
+          <div class="tags">
+            <span class="tag">Python 3</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Pytest</span>
+            <span class="tag">MLOps</span>
+            <span class="tag">Clean Code</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">In-Memory File System & CPU-Scheduler Suite</h3>
+            <span class="card-subtitle">TU Berlin (2025)</span>
+          </div>
+          <p class="card-body">
+            Implementierung eines virtuellen Dateisystems in C mit Block-Allokation, Datei-Deskriptoren und hierarchischer Verzeichnisstruktur. 
+            Parallel dazu Entwicklung einer umfassenden Scheduling-Suite mit klassischen Algorithmen wie Round Robin, Shortest Remaining Time First und Multilevel Feedback Queues.
+          </p>
+          <div class="tags">
+            <span class="tag">C</span>
+            <span class="tag">POSIX</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Operating Systems</span>
+            <span class="tag">Makefile</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills & Kompetenzen</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Sprachen & Stack</h3>
+          <p>Python, C, Java, SQL, JavaScript, Bash, Haskell</p>
+        </div>
+        <div class="skill-category">
+          <h3>Systeme & Tools</h3>
+          <p>GNU/Linux, Windows, Git, Make, LaTeX, VS Code</p>
+        </div>
+        <div class="skill-category">
+          <h3>Methoden & Schwerpunkte</h3>
+          <p>Datensysteme, Systemarchitektur, Datenmodellierung, Algorithmen</p>
+        </div>
+        <div class="skill-category">
+          <h3>Sprachen (Human)</h3>
+          <p>Deutsch (Muttersprache), Spanisch (Muttersprache), Englisch (verhandlungssicher, C1/C2)</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Robin Cantauw Martínez · Berlin, Deutschland</p>
+    </footer>
+  </div>
+</body>
+</html>
